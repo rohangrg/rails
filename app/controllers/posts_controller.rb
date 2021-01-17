@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def my_posts
+    @posts = current_user.posts
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -58,6 +62,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    redirect_to posts_url if @post.user_id != current_user&.id
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
