@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :download]
 
   # GET /posts
   # GET /posts.json
@@ -69,9 +69,13 @@ class PostsController < ApplicationController
     end
   end
 
-  def download
-    path = "uploads/post/image/#{params['id']}/#{params['basename']}.#{params['extension']}"
-    send_file path, :x_sendfile=>true
+  def download 
+    if !@post.is_private || @post.user_id == current_user&.id
+      path = "uploads/post/image/#{params['id']}/#{params['basename']}.#{params['extension']}"
+      send_file path, type: "image/#{params['extension']}", disposition: 'inline'
+    else
+      redirect_to posts_path
+    end
   end  
 
   private
