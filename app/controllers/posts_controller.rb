@@ -69,6 +69,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def download
+    path = "uploads/post/image/#{params['id']}/#{params['basename']}.#{params['extension']}"
+    send_file path, :x_sendfile=>true
+  end  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/uploads/:id/:basename.:extension", to: 'posts#download'
+
 end
