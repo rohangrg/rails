@@ -12,8 +12,8 @@ https://assignment-in.herokuapp.com/
   * single
 * Secure upload of images
   * private/public options while uploading images, you can also change them later on.
-  * once the image is marked private, they won't be visible in all posts section.
-  * and even if other users have the link of that image they won't be able to access it. (both the show page and the image link directly)
+  * Once the image is marked private, they won't be visible in all posts section for other users.
+  * Even if other users have the link of that image they won't be able to access it. (both the show page and the image link directly)
 
 * one user can't delete other user images.
 * one user can't change permition of other user images.
