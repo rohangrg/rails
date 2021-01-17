@@ -17,3 +17,15 @@ https://assignment-in.herokuapp.com/
 
 * one user can't delete other user images.
 * one user can't change permition of other user images.
+
+# DO NOT DO
+* there is a button in header which says *Don't Click Here*. Just don't click there :)
+
+
+# Deploy Locally
+
+* clone 
+* bundle install
+* rails db:migrate
+* rails s
+
