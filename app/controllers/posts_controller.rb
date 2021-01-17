@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where("is_private = 'f' OR user_id = #{current_user.id rescue 0}")
   end
 
   def my_posts
@@ -28,11 +28,10 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    is_private = params['post']['is_private'] == 1
 
     params['post']['images'].each do |image|
-      current_user.posts.build(image: image)
+      current_user.posts.build(image: image, is_private: is_private)
     end
     
     respond_to do |format|
@@ -78,6 +77,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit()
+      params.require(:post).permit(:is_private, :image)
     end
 end

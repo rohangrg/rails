@@ -11,10 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
+  <br>
+  <br>
+
+  <% if local_assigns.has_key? :edit %>
+    <div class="input-group w-25">
+      <div class="custom-file w-25">
+        <%= form.file_field :images, class: 'custom-file-input' %>
+        <%= form.label  'Change Image', class: "custom-file-label" %>  
+      </div>
+    </div>
+  <% else %>
+    <div class="input-group w-25">
+      <div class="custom-file w-25">
+        <%= form.file_field :images, multiple: true, class: 'custom-file-input' %>
+        <%= form.label  'Multiple Images Allowed', class: "custom-file-label" %>  
+      </div>
+    </div>
+  <% end %>
+  
+  <br>
+  
+  <div class='form-check'>
+    <%= form.check_box :is_private, class: "form-check-input"%>
+    <%= form.label :is_private, class: "form-check-label"%>
   </div>
+
+  <br>
+  <br>
 
   <div class="actions">
     <%= form.submit %>
