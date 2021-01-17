@@ -1,25 +1,19 @@
-# README
+#Deployed at 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://assignment-in.herokuapp.com/
 
-Things you may want to cover:
+#Things to expect
 
-* Ruby version
+* login/logout
 
-* System dependencies
+* upload images
+ - single/multiple
+* delete images
+ - single
+* Secure upload of images
+- private/public options while uploading images, you can also change them later on.
+- once the image is marked private, they won't be visible in all posts section.
+- and even if other users have the link of that image they won't be able to access it. (both the show page and the image link directly)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# shopify
+* one user can't delete other user images.
+* one user can't change permition of other user images.
