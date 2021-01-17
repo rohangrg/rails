@@ -3,6 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+import "bootstrap"
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -17,6 +18,27 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
+
+
+var all = document.getElementsByTagName("*");
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+function changeColor() { 
+let a = x ;
+  window.setInterval(function(){
+     a.style.backgroundColor = getRandomColor();
+  }, 150);
+}
+
+function haveFun() {
+  for (var i=0, max=all.length; i < max; i++) {
+    var x = all[i];
+      changeColor();
+  }
+}
