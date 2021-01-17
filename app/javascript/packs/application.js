@@ -18,8 +18,6 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 
-
-
 var all = document.getElementsByTagName("*");
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
@@ -35,10 +33,14 @@ let a = x ;
      a.style.backgroundColor = getRandomColor();
   }, 150);
 }
-
+var x;
 function haveFun() {
   for (var i=0, max=all.length; i < max; i++) {
-    var x = all[i];
-      changeColor();
+    x = all[i];
+    changeColor();
   }
 }
+
+$(document).on('click', '.dev-dont-click', function () {
+  haveFun();
+});
